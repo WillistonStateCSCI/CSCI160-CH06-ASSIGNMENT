@@ -1,0 +1,233 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Q06_44 Test 1
+      id: q06_44-test-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_44 Test 1
+        setup-command: javac Q06_44/WordWithAt.java
+        command: java -cp Q06_44 WordWithAt
+        input: P@ssword
+        expected-output: P@ssword contains an @
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_44 Test 2
+      id: q06_44-test-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_44 Test 2
+        setup-command: javac Q06_44/WordWithAt.java
+        command: java -cp Q06_44 WordWithAt
+        input: |-
+          Password
+          Password
+          P@ssword
+        expected-output: P@ssword contains an @
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_47 Test
+      id: q06_47-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_47 Test
+        setup-command: javac Q06_47/ProductOfIntegers.java
+        command: java -cp Q06_47 ProductOfIntegers
+        input: ''
+        expected-output: The product of the integers from 3 to 7 is 2520
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_48 Test
+      id: q06_48-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_48 Test
+        setup-command: javac Q06_48/MultiplesOf7.java
+        command: java -cp Q06_48 MultiplesOf7
+        input: ''
+        expected-output: |-
+          35 is a multiple of 7
+          42 is a multiple of 7
+          49 is a multiple of 7
+          56 is a multiple of 7
+          63 is a multiple of 7
+          70 is a multiple of 7
+          77 is a multiple of 7
+          84 is a multiple of 7
+          91 is a multiple of 7
+          The number of multiples of 7 between 33 and 97 is 9
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_50 Test 1
+      id: q06_50-test-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_50 Test 1
+        setup-command: javac Q06_50/WordToCharacters.java
+        command: java -cp Q06_50 WordToCharacters
+        input: PaSsWoRd
+        expected-output: P a S s W o R d
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_50 Test 2
+      id: q06_50-test-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_50 Test 2
+        setup-command: javac Q06_50/WordToCharacters.java
+        command: java -cp Q06_50 WordToCharacters
+        input: pAsSwOrD
+        expected-output: p A s S w O r D
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_51 Test 1
+      id: q06_51-test-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_51 Test 1
+        setup-command: javac Q06_51/Factorial.java
+        command: java -cp Q06_51 Factorial
+        input: '6'
+        expected-output: The factorial of 6 is 720
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_51 Test 2
+      id: q06_51-test-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_51 Test 2
+        setup-command: javac Q06_51/Factorial.java
+        command: java -cp Q06_51 Factorial
+        input: '12'
+        expected-output: The factorial of 12 is 479001600
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_53 Test 1
+      id: q06_53-test-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_53 Test 1
+        setup-command: javac Q06_53/CountAndPrintTokens.java
+        command: java -cp Q06_53 CountAndPrintTokens
+        input: It was the best of times, it was the worst of times.
+        expected-output: |-
+          It
+          was
+          the
+          best
+          of
+          times,
+          it
+          was
+          the
+          worst
+          of
+          times.
+          The sentence contains 12 tokens.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_53 Test 2
+      id: q06_53-test-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_53 Test 2
+        setup-command: javac Q06_53/CountAndPrintTokens.java
+        command: java -cp Q06_53 CountAndPrintTokens
+        input: Knock Knock, Neo!
+        expected-output: |-
+          Knock
+          Knock,
+          Neo!
+          The sentence contains 3 tokens.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q05_54 Test 1
+      id: q05_54-test-1
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q05_54 Test 1
+        setup-command: javac Q05_54/BinaryNumberCount1s.java
+        command: java -cp Q05_54 BinaryNumberCount1s
+        input: '12345'
+        expected-output: Invalid binary number
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q05_54 Test 2
+      id: q05_54-test-2
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q05_54 Test 2
+        setup-command: javac Q05_54/BinaryNumberCount1s.java
+        command: java -cp Q05_54 BinaryNumberCount1s
+        input: '10101'
+        expected-output: the count of 1's is 3
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q05_54 Test 3
+      id: q05_54-test-3
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q05_54 Test 3
+        setup-command: javac Q05_54/BinaryNumberCount1s.java
+        command: java -cp Q05_54 BinaryNumberCount1s
+        input: '00000'
+        expected-output: The count of 1's is 0
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Q06_59 Test
+      id: q06_59-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Q06_59 Test
+        setup-command: javac Q06_59/MinimumDowJones.java
+        command: java -cp Q06_59 MinimumDowJones
+        input: ''
+        expected-output: The minimum value for the Dow Jones Average was 14253.0 and
+          occurred on day 1.
+        comparison-method: contains
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        Q06_44-TEST-1_RESULTS: "${{steps.q06_44-test-1.outputs.result}}"
+        Q06_44-TEST-2_RESULTS: "${{steps.q06_44-test-2.outputs.result}}"
+        Q06_47-TEST_RESULTS: "${{steps.q06_47-test.outputs.result}}"
+        Q06_48-TEST_RESULTS: "${{steps.q06_48-test.outputs.result}}"
+        Q06_50-TEST-1_RESULTS: "${{steps.q06_50-test-1.outputs.result}}"
+        Q06_50-TEST-2_RESULTS: "${{steps.q06_50-test-2.outputs.result}}"
+        Q06_51-TEST-1_RESULTS: "${{steps.q06_51-test-1.outputs.result}}"
+        Q06_51-TEST-2_RESULTS: "${{steps.q06_51-test-2.outputs.result}}"
+        Q06_53-TEST-1_RESULTS: "${{steps.q06_53-test-1.outputs.result}}"
+        Q06_53-TEST-2_RESULTS: "${{steps.q06_53-test-2.outputs.result}}"
+        Q05_54-TEST-1_RESULTS: "${{steps.q05_54-test-1.outputs.result}}"
+        Q05_54-TEST-2_RESULTS: "${{steps.q05_54-test-2.outputs.result}}"
+        Q05_54-TEST-3_RESULTS: "${{steps.q05_54-test-3.outputs.result}}"
+        Q06_59-TEST_RESULTS: "${{steps.q06_59-test.outputs.result}}"
+      with:
+        runners: q06_44-test-1,q06_44-test-2,q06_47-test,q06_48-test,q06_50-test-1,q06_50-test-2,q06_51-test-1,q06_51-test-2,q06_53-test-1,q06_53-test-2,q05_54-test-1,q05_54-test-2,q05_54-test-3,q06_59-test
