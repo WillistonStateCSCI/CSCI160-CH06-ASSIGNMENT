@@ -191,7 +191,7 @@ jobs:
       id: q06_54-test-3
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: Q06_64 Test 3
+        test-name: Q06_54 Test 3
         setup-command: javac Q06_54/BinaryNumberCount1s.java
         command: java -cp Q06_54 BinaryNumberCount1s
         input: '00000'
