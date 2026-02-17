@@ -183,7 +183,7 @@ jobs:
         setup-command: javac Q06_54/BinaryNumberCount1s.java
         command: java -cp Q06_54 BinaryNumberCount1s
         input: '10101'
-        expected-output: the count of 1's is 3
+        expected-output: The count of 1's is 3
         comparison-method: contains
         timeout: 10
         max-score: 1
@@ -225,9 +225,9 @@ jobs:
         Q06_51-TEST-2_RESULTS: "${{steps.q06_51-test-2.outputs.result}}"
         Q06_53-TEST-1_RESULTS: "${{steps.q06_53-test-1.outputs.result}}"
         Q06_53-TEST-2_RESULTS: "${{steps.q06_53-test-2.outputs.result}}"
-        Q05_54-TEST-1_RESULTS: "${{steps.q05_54-test-1.outputs.result}}"
-        Q05_54-TEST-2_RESULTS: "${{steps.q05_54-test-2.outputs.result}}"
-        Q05_54-TEST-3_RESULTS: "${{steps.q05_54-test-3.outputs.result}}"
+        Q06_54-TEST-1_RESULTS: "${{steps.q06_54-test-1.outputs.result}}"
+        Q06_54-TEST-2_RESULTS: "${{steps.q06_54-test-2.outputs.result}}"
+        Q06_54-TEST-3_RESULTS: "${{steps.q06_54-test-3.outputs.result}}"
         Q06_59-TEST_RESULTS: "${{steps.q06_59-test.outputs.result}}"
       with:
         runners: q06_44-test-1,q06_44-test-2,q06_47-test,q06_48-test,q06_50-test-1,q06_50-test-2,q06_51-test-1,q06_51-test-2,q06_53-test-1,q06_53-test-2,q06_54-test-1,q06_54-test-2,q06_54-test-3,q06_59-test
