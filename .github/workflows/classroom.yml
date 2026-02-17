@@ -230,4 +230,4 @@ jobs:
         Q05_54-TEST-3_RESULTS: "${{steps.q05_54-test-3.outputs.result}}"
         Q06_59-TEST_RESULTS: "${{steps.q06_59-test.outputs.result}}"
       with:
-        runners: q06_44-test-1,q06_44-test-2,q06_47-test,q06_48-test,q06_50-test-1,q06_50-test-2,q06_51-test-1,q06_51-test-2,q06_53-test-1,q06_53-test-2,q05_54-test-1,q05_54-test-2,q05_54-test-3,q06_59-test
+        runners: q06_44-test-1,q06_44-test-2,q06_47-test,q06_48-test,q06_50-test-1,q06_50-test-2,q06_51-test-1,q06_51-test-2,q06_53-test-1,q06_53-test-2,q06_54-test-1,q06_54-test-2,q06_54-test-3,q06_59-test
